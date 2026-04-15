@@ -831,38 +831,326 @@
             color: var(--text-light);
         }
 
-        /* Responsive */
+        /* Site Header (injected via JS) */
+        .site-header-bar {
+            background: var(--navy);
+            padding: 12px 0;
+        }
+        .site-header-inner {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 0 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .site-header-logo {
+            color: #fff;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .site-header-logo:hover { color: #fff; }
+        .site-header-logo span { color: var(--primary); }
+        .site-header-links {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+        .site-header-phone {
+            color: rgba(255,255,255,0.85);
+            font-size: 13px;
+        }
+        .site-header-phone:hover { color: #fff; }
+        .site-header-wa {
+            color: #25d366;
+            font-size: 13px;
+        }
+        .site-header-wa:hover { color: #2be876; }
+
+        /* Global responsive helpers */
+        img { max-width: 100%; height: auto; }
+
+        /* ===== Tablet: 768px - 960px ===== */
         @media (max-width: 960px) {
             .page-layout { flex-direction: column; }
             .sidebar { width: 100%; }
             .footer-grid { grid-template-columns: repeat(2, 1fr); }
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .facilities-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-content { padding: 30px 0 25px; }
+            .hero-info h1 { font-size: 22px; }
+            .content-card { padding: 20px; }
+            .cta-band { padding: 30px 0; }
+            .cta-band h2 { font-size: 22px; }
+            .cta-band p { font-size: 14px; }
+
+            /* Tables scrollable on tablet */
+            .data-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+            /* Ranking badges */
+            .ranking-badges { gap: 10px; }
+            .ranking-badge { min-width: 130px; }
         }
+
+        /* ===== Small tablet / large phone: 480px - 770px ===== */
         @media (max-width: 770px) {
+            .container { padding: 0 12px; }
+
+            /* Header */
+            .site-header-inner {
+                flex-wrap: wrap;
+                gap: 8px;
+                justify-content: center;
+            }
+            .site-header-logo { font-size: 20px; }
+            .site-header-phone { font-size: 12px; }
+            .site-header-wa { font-size: 12px; }
+            .site-header-links { gap: 12px; }
+
+            /* Hero */
+            .hero-section { min-height: auto; }
+            .hero-content { padding: 25px 0 20px; }
             .hero-info h1 { font-size: 20px; }
             .hero-logo { width: 70px; height: 70px; }
+            .hero-rating { font-size: 12px; padding: 5px 12px; }
+            .hero-location { font-size: 13px; }
+            .hero-actions { gap: 10px; }
+            .btn-apply { padding: 10px 24px; font-size: 14px; }
+            .btn-outline { padding: 8px 18px; font-size: 13px; }
+
+            /* Tabs */
             .tab-link { padding: 12px 14px; font-size: 12px; }
+
+            /* Content cards */
             .content-card { padding: 18px; }
             .content-card h2 { font-size: 18px; }
-            .data-table { font-size: 12px; }
-            .data-table th, .data-table td { padding: 8px 10px; }
-            .cta-band h2 { font-size: 20px; }
+            .content-card h3 { font-size: 15px; }
+            .content-card p { font-size: 13px; }
+
+            /* Tables */
+            .data-table { font-size: 12px; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .data-table th, .data-table td { padding: 8px 10px; white-space: nowrap; }
+
+            /* Stats */
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .stat-box { padding: 14px 10px; }
+            .stat-box .number { font-size: 20px; }
+            .stat-box .label { font-size: 11px; }
+
+            /* Facilities */
+            .facilities-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .facility-item { padding: 10px; font-size: 12px; }
+
+            /* Rankings */
             .ranking-badges { gap: 8px; }
             .ranking-badge { min-width: 120px; padding: 12px 15px; }
+            .ranking-badge .rank-number { font-size: 20px; }
+
+            /* CTA band */
+            .cta-band { padding: 25px 0; }
+            .cta-band h2 { font-size: 20px; }
+            .cta-band p { font-size: 13px; margin-bottom: 15px; }
+            .cta-band .btn-apply { padding: 12px 30px; font-size: 14px; }
+
+            /* Footer */
+            .footer-main { padding: 30px 0 15px; }
+            .footer-grid { gap: 20px; }
+            .footer-col h4 { font-size: 15px; margin-bottom: 10px; }
+
+            /* Modal */
+            .modal-box { padding: 24px 20px; width: 96%; }
+            .modal-box h3 { font-size: 18px; }
+
+            /* Sidebar cards */
+            .sidebar-card { padding: 18px; }
+            .sidebar-cta { padding: 20px 18px; }
+
+            /* FAQ */
+            .faq-question { padding: 12px 15px; font-size: 13px; }
+            .faq-item.open .faq-answer { padding: 12px 15px; }
+
+            /* Reviews */
+            .review-card { padding: 15px; }
+            .review-text { font-size: 12px; }
+
+            /* Quick connect */
+            .quick-connect .container { gap: 8px; }
+            .quick-btn { padding: 8px 14px; font-size: 12px; gap: 6px; }
+
+            /* WhatsApp float above quick connect */
+            .whatsapp-float { bottom: 75px; right: 15px; width: 50px; height: 50px; font-size: 24px; }
+            .scroll-top { bottom: 140px; right: 17px; width: 38px; height: 38px; font-size: 16px; }
+
+            /* Ensure body has bottom padding so quick connect bar doesn't hide content */
+            body { padding-bottom: 60px; }
+
+            /* Chart */
+            .chart-container { max-width: 280px; }
         }
+
+        /* ===== Phone: up to 480px ===== */
         @media (max-width: 480px) {
+            .container { padding: 0 10px; }
+
+            /* Header */
+            .site-header-inner { flex-direction: column; gap: 6px; }
+            .site-header-logo { font-size: 18px; }
+            .site-header-links { gap: 10px; }
+            .site-header-phone, .site-header-wa { font-size: 11px; }
+
+            /* Hero stacked layout */
             .hero-top { flex-direction: column; align-items: center; text-align: center; }
-            .hero-actions { justify-content: center; }
-            .key-info-grid { justify-content: center; }
-            .key-info-item { flex: 0 0 45%; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .stats-grid { grid-template-columns: 1fr 1fr; }
-            .facilities-grid { grid-template-columns: 1fr; }
-            .quick-connect .container { flex-wrap: wrap; }
-            .quick-btn { flex: 1; justify-content: center; min-width: 120px; }
-            .hero-info h1 { font-size: 18px; }
-            .data-table { display: block; overflow-x: auto; }
+            .hero-content { padding: 20px 0 18px; }
+            .hero-info h1 { font-size: 18px; line-height: 1.3; }
+            .hero-logo { width: 65px; height: 65px; }
+            .hero-rating { margin-bottom: 10px; font-size: 12px; }
+            .hero-location { font-size: 12px; margin-bottom: 10px; }
+            .hero-actions { justify-content: center; gap: 8px; flex-wrap: wrap; }
+            .btn-apply { padding: 10px 20px; font-size: 13px; }
+            .btn-outline { padding: 8px 16px; font-size: 12px; }
+
+            /* Key info bar */
+            .key-info-bar { padding: 12px 0; }
+            .key-info-grid { justify-content: center; gap: 5px; }
+            .key-info-item { flex: 0 0 45%; padding: 5px 8px; }
+            .key-info-item .label { font-size: 10px; }
+            .key-info-item .value { font-size: 13px; }
+
+            /* Tabs - horizontal scroll */
+            .tab-link { padding: 10px 12px; font-size: 11px; }
+
+            /* Content cards */
+            .content-card { padding: 15px; margin-bottom: 15px; }
+            .content-card h2 { font-size: 16px; padding-bottom: 8px; margin-bottom: 12px; }
+            .content-card h3 { font-size: 14px; margin: 14px 0 8px; }
+            .content-card p { font-size: 13px; line-height: 1.7; margin-bottom: 10px; }
+
+            /* Tables */
+            .data-table { font-size: 11px; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .data-table th { padding: 8px; font-size: 11px; }
+            .data-table td { padding: 7px 8px; font-size: 11px; }
+
+            /* Stats */
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 8px; margin: 15px 0; }
+            .stat-box { padding: 12px 8px; }
+            .stat-box .number { font-size: 18px; }
+            .stat-box .label { font-size: 10px; }
+
+            /* Facilities - single column */
+            .facilities-grid { grid-template-columns: 1fr; gap: 8px; }
+            .facility-item { padding: 10px; font-size: 12px; }
+
+            /* Ranking badges */
+            .ranking-badges { gap: 8px; }
+            .ranking-badge { min-width: calc(50% - 8px); flex: 0 0 calc(50% - 4px); padding: 12px 10px; }
+            .ranking-badge .rank-number { font-size: 18px; }
+            .ranking-badge .rank-label { font-size: 10px; }
+
+            /* Recruiter tags */
+            .recruiter-tags { gap: 6px; }
+            .recruiter-tag { padding: 5px 12px; font-size: 12px; }
+
+            /* Highlights list */
+            .highlights-list li { padding: 8px 0 8px 25px; font-size: 13px; }
+
+            /* Eligibility list */
+            .eligibility-list li { font-size: 13px; padding: 6px 0 6px 22px; }
+
+            /* CTA band */
+            .cta-band { padding: 25px 0; }
+            .cta-band h2 { font-size: 18px; line-height: 1.3; }
+            .cta-band p { font-size: 13px; margin-bottom: 15px; }
+            .cta-band .btn-apply { padding: 12px 28px; font-size: 14px; display: block; margin: 0 auto; width: fit-content; }
+
+            /* Footer */
+            .footer-main { padding: 25px 0 15px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 20px; }
+            .footer-col h4 { font-size: 14px; margin-bottom: 10px; }
+            .footer-col p, .footer-col a, .footer-col ul li a { font-size: 12px; }
+            .footer-bottom { font-size: 11px; }
+            .footer-social a { width: 32px; height: 32px; font-size: 14px; }
+
+            /* Quick connect bar */
+            .quick-connect { padding: 8px 0; }
+            .quick-connect .container { flex-wrap: wrap; gap: 6px; justify-content: center; }
+            .quick-btn { flex: 1; justify-content: center; min-width: 90px; padding: 8px 10px; font-size: 11px; gap: 5px; }
+            body { padding-bottom: 65px; }
+
+            /* WhatsApp float - position above quick connect bar */
+            .whatsapp-float { bottom: 70px; right: 12px; width: 48px; height: 48px; font-size: 22px; }
+            .scroll-top { bottom: 130px; right: 14px; width: 36px; height: 36px; font-size: 14px; }
+
+            /* Modal - near full screen on phone */
+            .modal-overlay { align-items: flex-end; }
+            .modal-box {
+                width: 100%;
+                max-width: 100%;
+                border-radius: 16px 16px 0 0;
+                max-height: 92vh;
+                padding: 24px 18px 30px;
+            }
+            .modal-box h3 { font-size: 17px; }
+            .modal-box .modal-subtitle { font-size: 12px; margin-bottom: 15px; }
+            .modal-close { top: 10px; right: 14px; font-size: 24px; }
+
+            /* Sidebar */
+            .sidebar-card { padding: 16px; margin-bottom: 15px; }
+            .sidebar-card h3 { font-size: 15px; margin-bottom: 12px; }
+            .sidebar-cta { padding: 20px 16px; }
+            .sidebar-cta h3 { font-size: 15px; }
+            .sidebar-cta p { font-size: 12px; }
+
+            /* Forms */
+            .lead-form label { font-size: 11px; }
+            .lead-form input, .lead-form select, .lead-form textarea { padding: 9px 10px; font-size: 13px; }
+            .lead-form .btn-submit { padding: 11px; font-size: 13px; }
+
+            /* FAQ */
+            .faq-question { padding: 12px 14px; font-size: 13px; }
+            .faq-answer { font-size: 13px; line-height: 1.6; }
+            .faq-item.open .faq-answer { padding: 12px 14px; }
+
+            /* Reviews */
+            .review-card { padding: 14px; margin-bottom: 12px; }
+            .review-header { gap: 10px; }
+            .review-avatar { width: 36px; height: 36px; font-size: 14px; }
+            .review-name { font-size: 13px; }
+            .review-stars { font-size: 12px; }
+            .review-text { font-size: 12px; line-height: 1.6; }
+
+            /* Course toggle */
+            .course-toggle-btn { padding: 7px 16px; font-size: 12px; }
+
+            /* Course pills */
+            .course-pill { padding: 5px 11px; font-size: 11px; }
+
+            /* Related items */
+            .related-item { font-size: 12px; padding: 8px 0; }
+
+            /* Contact info */
+            .contact-info li { font-size: 13px; padding: 10px 0; gap: 10px; }
+
+            /* Chart */
+            .chart-container { max-width: 260px; }
+
+            /* Page body */
+            .page-body { padding: 15px 0 30px; }
+        }
+
+        /* ===== Very small phones: up to 360px ===== */
+        @media (max-width: 360px) {
+            .hero-info h1 { font-size: 16px; }
+            .hero-actions { flex-direction: column; align-items: center; }
+            .btn-apply, .btn-outline { width: 100%; text-align: center; }
+            .key-info-item { flex: 0 0 100%; }
+            .key-info-grid { flex-direction: column; align-items: center; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .ranking-badge { flex: 0 0 100%; min-width: 100%; }
+            .quick-btn { min-width: 80px; font-size: 10px; padding: 7px 8px; }
+            .tab-link { padding: 10px 10px; font-size: 10px; }
+            .cta-band h2 { font-size: 16px; }
+            .modal-box { padding: 20px 14px 25px; }
         }
     </style>
 </head>
@@ -1621,7 +1909,7 @@
 (function(){
     var h = document.getElementById('site-header');
     if(h){
-        h.innerHTML = '<div style="background:var(--navy);padding:12px 0;"><div style="max-width:var(--maxw);margin:0 auto;padding:0 15px;display:flex;align-items:center;justify-content:space-between;"><a href="https://sabkacollege.com" style="color:#fff;font-size:22px;font-weight:700;letter-spacing:0.5px;">Sabka<span style="color:var(--primary);">College</span></a><div style="display:flex;align-items:center;gap:18px;"><a href="tel:+919482540282" style="color:rgba(255,255,255,0.85);font-size:13px;"><i class="fas fa-phone-alt"></i> +91-94825-40282</a><a href="https://wa.me/919482540282" target="_blank" style="color:#25d366;font-size:13px;"><i class="fab fa-whatsapp"></i> WhatsApp</a></div></div></div>';
+        h.innerHTML = '<div class="site-header-bar"><div class="site-header-inner"><a href="https://sabkacollege.com" class="site-header-logo"><img src="logo.avif" alt="SabkaCollege Logo" style="height:32px;vertical-align:middle;margin-right:8px;">Sabka<span>College</span></a><div class="site-header-links"><a href="tel:+919482540282" class="site-header-phone"><i class="fas fa-phone-alt"></i> +91-94825-40282</a><a href="https://wa.me/919482540282" target="_blank" class="site-header-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a></div></div></div>';
     }
 })();
 </script>

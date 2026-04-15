@@ -188,20 +188,224 @@
         .modal .modal-sub { font-size: 13px; color: var(--text-light); margin-bottom: 20px; }
 
         /* Responsive */
+
+        /* Tablet (up to 900px) */
         @media (max-width: 900px) {
             .page-body { flex-direction: column; }
             .sidebar { width: 100%; }
+            .hero-content { padding: 40px 0 30px; }
+            .hero-info h1 { font-size: 23px; }
+            .hero-logo { width: 85px; height: 85px; }
+            .hero-logo img { max-width: 68px; max-height: 68px; }
+            .card { padding: 20px; }
+            .card h2 { font-size: 18px; }
+            .cta-band { padding: 30px 0; }
+            .cta-band h2 { font-size: 21px; }
+            .cta-band p { font-size: 14px; }
+            .modal { padding: 24px; max-width: 420px; }
         }
+
+        /* Small tablet / large phone (up to 600px) */
         @media (max-width: 600px) {
-            .hero-info h1 { font-size: 20px; }
-            .hero-top { flex-direction: column; align-items: center; text-align: center; }
+            .container { padding: 0 12px; }
+            .hero-content { padding: 30px 0 25px; }
+            .hero-top { flex-direction: column; align-items: center; text-align: center; gap: 16px; }
+            .hero-logo { width: 76px; height: 76px; }
+            .hero-logo img { max-width: 60px; max-height: 60px; }
+            .hero-info h1 { font-size: 20px; line-height: 1.3; }
+            .hero-location { font-size: 13px; }
             .hero-rating { justify-content: center; }
-            .hero-actions { justify-content: center; }
-            .key-info-bar { flex-direction: column; align-items: center; }
-            .highlight-grid { grid-template-columns: 1fr; }
-            .quick-connect { display: flex; }
-            .cta-band h2 { font-size: 19px; }
+            .hero-rating-text { font-size: 13px; }
+            .hero-actions { justify-content: center; flex-wrap: wrap; gap: 10px; }
+            .btn-hero { padding: 10px 22px; font-size: 14px; }
+
+            /* Key Info Bar */
+            .key-info-bar { flex-direction: column; align-items: center; padding: 14px 16px; margin: -20px 12px 16px; gap: 6px; }
+            .key-info-item { padding: 4px 8px; }
+            .key-info-item .value { font-size: 14px; }
+
+            /* Tab Nav - horizontal scroll */
+            .tab-btn { padding: 12px 14px; font-size: 13px; }
+
+            /* Layout */
+            .page-body { padding: 16px 12px 30px; gap: 16px; }
+
+            /* Cards */
+            .card { padding: 16px; margin-bottom: 14px; border-radius: 8px; }
+            .card h2 { font-size: 17px; margin-bottom: 12px; padding-bottom: 8px; }
+            .card h3 { font-size: 15px; margin: 14px 0 8px; }
+            .card p { font-size: 13px; margin-bottom: 10px; }
+            .card ul { padding-left: 18px; }
+            .card ul li { font-size: 13px; margin-bottom: 5px; }
+
+            /* Highlight Grid - single column */
+            .highlight-grid { grid-template-columns: 1fr !important; gap: 10px; }
+            .highlight-item { padding: 12px; }
+            .highlight-item span { font-size: 13px; }
+
+            /* Tables - ensure horizontal scroll */
+            .table-wrap { margin: 12px 0; border-radius: 6px; -webkit-overflow-scrolling: touch; }
+            .data-table { font-size: 13px; min-width: 400px; }
+            .data-table th { padding: 10px 12px; font-size: 12px; }
+            .data-table td { padding: 9px 12px; }
+
+            /* Chart */
+            .chart-container { max-width: 280px; }
+
+            /* Sidebar */
+            .sidebar-card { padding: 16px; margin-bottom: 14px; }
+            .sidebar-card h3 { font-size: 15px; margin-bottom: 12px; }
+            .sidebar-cta { padding: 22px 16px; }
+            .sidebar-cta h3 { font-size: 16px; }
+            .sidebar-cta p { font-size: 12px; }
+
+            /* CTA Band */
+            .cta-band { padding: 28px 0; margin-top: 16px; }
+            .cta-band h2 { font-size: 19px; margin-bottom: 6px; }
+            .cta-band p { font-size: 13px; margin-bottom: 16px; }
+            .cta-band .btn-hero { font-size: 14px; padding: 12px 28px; }
+
+            /* FAQ */
+            .faq-q { padding: 12px 14px; font-size: 13px; }
+            .faq-a { font-size: 12px; }
+            .faq-a.open { padding: 0 14px 12px; }
+
+            /* Reviews */
+            .review-card { padding: 14px; margin-bottom: 12px; }
+            .review-avatar { width: 36px; height: 36px; font-size: 14px; }
+            .review-name { font-size: 14px; }
+            .review-text { font-size: 12px; }
+
+            /* Quick Connect Bar */
+            .quick-connect { display: flex; padding: 8px 0; }
+            .quick-connect .container { gap: 8px; }
+            .quick-connect .qc-btn { padding: 9px 10px; font-size: 12px; gap: 5px; max-width: none; }
+
+            /* WhatsApp Float - above quick connect bar */
+            .wa-float { bottom: 70px; right: 16px; width: 50px; height: 50px; font-size: 24px; }
+
+            /* Scroll Top - above quick connect bar */
+            .scroll-top { bottom: 70px; left: 16px; width: 40px; height: 40px; font-size: 16px; }
+
+            /* Modal - near full screen on mobile */
+            .modal-overlay { padding: 10px; }
+            .modal { padding: 20px; border-radius: 10px; max-width: 100%; max-height: 95vh; }
+            .modal h2 { font-size: 18px; }
+            .modal .modal-sub { font-size: 12px; margin-bottom: 16px; }
+            .modal-close { top: 8px; right: 12px; font-size: 24px; }
+
+            /* Forms */
+            .form-group { margin-bottom: 12px; }
+            .form-group label { font-size: 12px; }
+            .form-group input, .form-group select, .form-group textarea { padding: 9px 10px; font-size: 13px; }
+
+            /* Buttons */
+            .btn-primary { padding: 10px 22px; font-size: 14px; }
+            .btn-outline { padding: 8px 18px; font-size: 13px; }
+
+            /* Related colleges */
+            .related-item { padding: 10px 0; gap: 10px; }
+            .related-item .r-icon { width: 36px; height: 36px; }
+
+            /* Course pills */
+            .course-pills { gap: 6px; }
+            .course-pill { padding: 5px 12px; font-size: 11px; }
+
+            /* Body bottom padding for quick connect bar */
+            body { padding-bottom: 60px; }
         }
+
+        /* Small phones (up to 480px) */
+        @media (max-width: 480px) {
+            .container { padding: 0 10px; }
+            .hero-content { padding: 24px 0 20px; }
+            .hero-top { gap: 12px; }
+            .hero-logo { width: 64px; height: 64px; padding: 6px; }
+            .hero-logo img { max-width: 50px; max-height: 50px; }
+            .hero-info h1 { font-size: 17px; }
+            .hero-location { font-size: 12px; margin-bottom: 8px; }
+            .hero-rating-text { font-size: 12px; }
+            .hero-stars { font-size: 14px; }
+            .hero-actions { gap: 8px; }
+            .btn-hero { padding: 9px 18px; font-size: 13px; width: 100%; text-align: center; justify-content: center; }
+
+            /* Key info bar */
+            .key-info-bar { padding: 12px; margin: -18px 10px 14px; gap: 4px; }
+            .key-info-item .label { font-size: 10px; }
+            .key-info-item .value { font-size: 13px; }
+
+            /* Tab Nav */
+            .tab-btn { padding: 10px 12px; font-size: 12px; }
+
+            /* Layout */
+            .page-body { padding: 12px 10px 24px; gap: 12px; }
+
+            /* Cards */
+            .card { padding: 14px; margin-bottom: 12px; }
+            .card h2 { font-size: 16px; margin-bottom: 10px; }
+            .card h3 { font-size: 14px; margin: 12px 0 6px; }
+            .card p { font-size: 12px; line-height: 1.6; }
+            .card ul li { font-size: 12px; }
+
+            /* Tables */
+            .data-table { min-width: 360px; font-size: 12px; }
+            .data-table th { padding: 8px 10px; font-size: 11px; }
+            .data-table td { padding: 8px 10px; }
+
+            /* Highlight items */
+            .highlight-item { padding: 10px; gap: 8px; }
+            .highlight-item i { font-size: 16px; }
+            .highlight-item span { font-size: 12px; }
+
+            /* CTA Band */
+            .cta-band { padding: 24px 0; }
+            .cta-band h2 { font-size: 17px; }
+            .cta-band p { font-size: 12px; }
+            .cta-band .btn-hero { font-size: 13px; padding: 11px 24px; width: 100%; }
+
+            /* FAQ */
+            .faq-q { padding: 10px 12px; font-size: 12px; }
+            .faq-q i { font-size: 11px; }
+            .faq-a { font-size: 11px; line-height: 1.6; }
+            .faq-a.open { padding: 0 12px 10px; }
+
+            /* Sidebar */
+            .sidebar-cta { padding: 20px 14px; }
+            .sidebar-cta h3 { font-size: 15px; }
+            .sidebar-card { padding: 14px; }
+            .sidebar-card h3 { font-size: 14px; }
+
+            /* Quick connect bar */
+            .quick-connect .qc-btn { padding: 8px 6px; font-size: 11px; gap: 4px; border-radius: 5px; }
+            .quick-connect .qc-btn i { font-size: 12px; }
+
+            /* WhatsApp float */
+            .wa-float { width: 46px; height: 46px; font-size: 22px; right: 12px; bottom: 68px; }
+
+            /* Scroll top */
+            .scroll-top { width: 36px; height: 36px; font-size: 14px; left: 12px; bottom: 68px; }
+
+            /* Modal */
+            .modal { padding: 16px; border-radius: 8px; }
+            .modal h2 { font-size: 16px; }
+            .modal .modal-sub { font-size: 11px; }
+
+            /* Forms */
+            .form-group input, .form-group select, .form-group textarea { padding: 8px 9px; font-size: 13px; }
+
+            /* Reviews */
+            .review-card { padding: 12px; }
+            .review-avatar { width: 32px; height: 32px; font-size: 13px; }
+            .review-name { font-size: 13px; }
+            .review-stars { font-size: 11px; }
+            .review-text { font-size: 11px; }
+
+            /* Related items */
+            .related-item .r-info { font-size: 12px; }
+            .related-item .r-loc { font-size: 10px; }
+        }
+
+        /* Hide quick connect on desktop */
         @media (min-width: 601px) {
             .quick-connect { display: none !important; }
         }
@@ -290,8 +494,18 @@
 </head>
 <body>
 
-<!-- Header Placeholder -->
-<div id="site-header"></div>
+<!-- Header -->
+<div id="site-header">
+    <div style="background:var(--navy);padding:12px 0;">
+        <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+            <a href="https://sabkacollege.com" style="color:#fff;font-size:22px;font-weight:700;letter-spacing:0.5px;display:flex;align-items:center;gap:8px;"><img src="logo.avif" alt="SabkaCollege Logo" style="height:32px;">Sabka<span style="color:var(--primary);">College</span></a>
+            <div style="display:flex;align-items:center;gap:16px;">
+                <a href="tel:+919482540282" style="color:rgba(255,255,255,0.85);font-size:13px;"><i class="fas fa-phone-alt"></i> +91-94825-40282</a>
+                <a href="https://wa.me/919482540282" target="_blank" style="color:#25d366;font-size:13px;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Hero Section -->
 <section class="hero">
