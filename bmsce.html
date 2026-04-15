@@ -18,7 +18,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 
     <script type="application/ld+json">
     {
@@ -138,17 +137,24 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--text);
             background: var(--bg);
             line-height: 1.6;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         a { color: var(--primary); text-decoration: none; }
         a:hover { color: var(--primary-dark); }
 
-        .container { max-width: var(--maxw); margin: 0 auto; padding: 0 15px; }
+        .container { max-width: var(--maxw); margin: 0 auto; padding: 0 15px; overflow-x: hidden; }
 
         /* Hero Section */
         .hero-section {
@@ -219,6 +225,7 @@
             border-top: 1px solid #c8ddf5;
             border-bottom: 1px solid #c8ddf5;
             padding: 15px 0;
+            overflow-x: hidden;
         }
         .key-info-grid {
             display: flex; justify-content: space-around;
@@ -554,6 +561,7 @@
             color: var(--white);
             padding: 40px 0;
             text-align: center;
+            overflow-x: hidden;
         }
         .cta-band h2 {
             font-size: 24px; font-weight: 600;
@@ -576,6 +584,7 @@
             background: var(--navy);
             color: rgba(255,255,255,0.7);
             padding: 40px 0 20px;
+            overflow-x: hidden;
         }
         .footer-grid {
             display: grid;
@@ -662,6 +671,8 @@
             background: var(--navy);
             padding: 10px 0;
             display: none;
+            width: 100%;
+            overflow-x: hidden;
         }
         .quick-connect.visible { display: block; }
         .quick-connect .container {
@@ -835,6 +846,10 @@
         img { max-width: 100%; height: auto; }
 
         /* Header responsive */
+        #site-header {
+            overflow: hidden;
+            width: 100%;
+        }
         #site-header .header-inner {
             max-width: var(--maxw);
             margin: 0 auto;
@@ -844,6 +859,7 @@
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 8px;
+            overflow: hidden;
         }
         #site-header .header-links {
             display: flex;
@@ -1164,39 +1180,6 @@
                         <p>BMS College of Engineering (BMSCE), established in 1946 by Bhusanayana Mukundadas Sreenivasaiah under the B.M.S. Educational Trust, is the first private initiative for engineering education in India. Spread across an 11-acre campus at Bull Temple Road, Basavanagudi, Bangalore, BMSCE has been a pioneer in technical education for nearly eight decades.</p>
                         <p>The institute operates as an autonomous institution affiliated to Visvesvaraya Technological University (VTU), Belagavi. It has been accredited with NAAC A++ grade and is ranked #82 in the NIRF Engineering category and among the top 5 engineering colleges in Bangalore.</p>
                         <p>BMSCE offers 13 UG courses, 16 PG programs, and doctoral programs across engineering, technology, and management disciplines. The college is approved by AICTE and multiple programs are NBA accredited.</p>
-                    </div>
-
-                    <div class="content-card">
-                        <h2>Admission Channels</h2>
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>Channel</th>
-                                    <th>Seat Share</th>
-                                    <th>Entrance Exam</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Government Quota (KCET)</td>
-                                    <td>45%</td>
-                                    <td>KCET</td>
-                                </tr>
-                                <tr>
-                                    <td>COMEDK Quota</td>
-                                    <td>30%</td>
-                                    <td>COMEDK UGET</td>
-                                </tr>
-                                <tr>
-                                    <td>Management Quota</td>
-                                    <td>25%</td>
-                                    <td>Merit Based</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class="chart-container">
-                            <canvas id="seatChart"></canvas>
-                        </div>
                     </div>
 
                     <div class="content-card">
@@ -1916,41 +1899,6 @@ courseToggleBtns.forEach(function(btn) {
     });
 });
 
-/* ===== Chart.js - Seat Distribution ===== */
-var ctx = document.getElementById('seatChart');
-if (ctx) {
-    new Chart(ctx.getContext('2d'), {
-        type: 'pie',
-        data: {
-            labels: ['KCET (45%)', 'COMEDK (30%)', 'Management (25%)'],
-            datasets: [{
-                data: [45, 30, 25],
-                backgroundColor: ['#1a73e8', '#f39c12', '#3498db'],
-                borderWidth: 2,
-                borderColor: '#fff'
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'bottom',
-                    labels: {
-                        padding: 15,
-                        font: { family: 'Poppins', size: 12 }
-                    }
-                },
-                title: {
-                    display: true,
-                    text: 'Seat Distribution by Quota',
-                    font: { family: 'Poppins', size: 14, weight: '600' },
-                    color: '#0e2142',
-                    padding: { bottom: 15 }
-                }
-            }
-        }
-    });
-}
 
 /* ===== Lead Form Submission ===== */
 function submitLeadForm(e, formId) {

@@ -20,7 +20,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
         :root {
             --primary: #1a73e8;
@@ -36,17 +35,18 @@
             --border: #e0e0e0;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+        html, body { overflow-x: hidden; max-width: 100vw; }
+        body { font-family: 'Poppins', sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; word-wrap: break-word; overflow-wrap: break-word; }
         a { text-decoration: none; color: var(--primary); }
         img { max-width: 100%; height: auto; }
-        .container { max-width: var(--maxw); margin: 0 auto; padding: 0 15px; }
+        .container { max-width: var(--maxw); margin: 0 auto; padding: 0 15px; overflow-x: hidden; }
         .btn-primary { background: var(--primary); color: var(--white); border: none; padding: 12px 28px; border-radius: 6px; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 15px; cursor: pointer; transition: background .3s; display: inline-block; }
         .btn-primary:hover { background: var(--primary-dark); }
         .btn-outline { border: 2px solid var(--primary); color: var(--primary); background: transparent; padding: 10px 24px; border-radius: 6px; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 14px; cursor: pointer; transition: all .3s; display: inline-block; }
         .btn-outline:hover { background: var(--primary); color: var(--white); }
 
         /* Hero */
-        .hero { position: relative; min-height: 340px; background: linear-gradient(135deg, var(--navy), var(--primary)); overflow: hidden; }
+        .hero { position: relative; min-height: 340px; background: linear-gradient(135deg, var(--navy), var(--primary)); overflow: hidden; max-width: 100vw; }
         .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: .35; }
         .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(14,33,66,.7), rgba(26,115,232,.5)); }
         .hero-content { position: relative; z-index: 2; padding: 50px 0 40px; color: var(--white); }
@@ -64,13 +64,13 @@
         .btn-hero:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.3); }
 
         /* Key Info Bar */
-        .key-info-bar { background: #eef4ff; border: 1px solid #c8ddf5; border-radius: 10px; padding: 18px 24px; margin: -25px auto 20px; position: relative; z-index: 3; max-width: var(--maxw); display: flex; justify-content: space-around; flex-wrap: wrap; gap: 10px; }
+        .key-info-bar { background: #eef4ff; border: 1px solid #c8ddf5; border-radius: 10px; padding: 18px 24px; margin: -25px auto 20px; position: relative; z-index: 3; max-width: var(--maxw); display: flex; justify-content: space-around; flex-wrap: wrap; gap: 10px; overflow: hidden; }
         .key-info-item { text-align: center; padding: 5px 10px; }
         .key-info-item .label { font-size: 12px; color: var(--text-lighter); text-transform: uppercase; font-weight: 600; letter-spacing: .5px; }
         .key-info-item .value { font-size: 15px; font-weight: 700; color: var(--navy); margin-top: 2px; }
 
         /* Tabs */
-        .tab-nav-wrap { background: var(--white); border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+        .tab-nav-wrap { background: var(--white); border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,.06); overflow: hidden; }
         .tab-nav { display: flex; gap: 0; overflow-x: auto; max-width: var(--maxw); margin: 0 auto; padding: 0 15px; scrollbar-width: none; }
         .tab-nav::-webkit-scrollbar { display: none; }
         .tab-btn { padding: 14px 18px; font-size: 14px; font-weight: 500; color: var(--text-light); cursor: pointer; border: none; background: none; white-space: nowrap; border-bottom: 3px solid transparent; transition: all .3s; font-family: 'Poppins', sans-serif; }
@@ -78,7 +78,7 @@
         .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); font-weight: 600; }
 
         /* Layout */
-        .page-body { max-width: var(--maxw); margin: 0 auto; padding: 20px 15px 40px; display: flex; gap: 24px; }
+        .page-body { max-width: var(--maxw); margin: 0 auto; padding: 20px 15px 40px; display: flex; gap: 24px; overflow-x: hidden; }
         .main-content { flex: 1; min-width: 0; }
         .sidebar { width: 320px; flex-shrink: 0; }
 
@@ -95,7 +95,7 @@
         .card ul li { font-size: 14px; color: var(--text-light); margin-bottom: 6px; line-height: 1.6; }
 
         /* Highlight Grid */
-        .highlight-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin: 16px 0; }
+        .highlight-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin: 16px 0; overflow: hidden; }
         .highlight-item { display: flex; align-items: flex-start; gap: 10px; padding: 14px; background: #f8faff; border-radius: 8px; border: 1px solid #e8f0fe; }
         .highlight-item i { color: var(--primary); font-size: 18px; margin-top: 2px; flex-shrink: 0; }
         .highlight-item span { font-size: 13px; color: var(--text); font-weight: 500; }
@@ -109,8 +109,6 @@
         .data-table tbody tr:nth-child(even) { background: #f8faff; }
         .data-table tbody tr:hover { background: #eef4ff; }
 
-        /* Chart */
-        .chart-container { max-width: 320px; margin: 20px auto; }
 
         /* Sidebar */
         .sidebar-card { background: var(--white); border-radius: 10px; padding: 20px; margin-bottom: 18px; box-shadow: 0 2px 8px rgba(0,0,0,.05); border: 1px solid var(--border); }
@@ -140,7 +138,7 @@
         .course-pill { padding: 6px 14px; background: #eef4ff; color: var(--primary); font-size: 12px; font-weight: 500; border-radius: 20px; border: 1px solid #c8ddf5; }
 
         /* CTA Band */
-        .cta-band { background: linear-gradient(135deg, var(--navy), var(--primary)); padding: 40px 0; text-align: center; color: var(--white); margin-top: 20px; }
+        .cta-band { background: linear-gradient(135deg, var(--navy), var(--primary)); padding: 40px 0; text-align: center; color: var(--white); margin-top: 20px; overflow: hidden; }
         .cta-band h2 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
         .cta-band p { font-size: 15px; opacity: .9; margin-bottom: 20px; }
         .cta-band .btn-hero { font-size: 16px; padding: 14px 40px; }
@@ -172,7 +170,7 @@
         .scroll-top:hover { transform: translateY(-3px); }
 
         /* Quick Connect Bar */
-        .quick-connect { position: fixed; bottom: 0; left: 0; right: 0; z-index: 998; background: var(--white); border-top: 1px solid var(--border); padding: 10px 0; display: none; box-shadow: 0 -4px 12px rgba(0,0,0,.08); }
+        .quick-connect { position: fixed; bottom: 0; left: 0; right: 0; width: 100%; z-index: 998; background: var(--white); border-top: 1px solid var(--border); padding: 10px 0; display: none; box-shadow: 0 -4px 12px rgba(0,0,0,.08); overflow-x: hidden; }
         .quick-connect .container { display: flex; gap: 10px; justify-content: center; }
         .quick-connect .qc-btn { flex: 1; max-width: 200px; padding: 10px 16px; border-radius: 6px; font-size: 13px; font-weight: 600; text-align: center; cursor: pointer; border: none; font-family: 'Poppins', sans-serif; display: flex; align-items: center; justify-content: center; gap: 6px; }
         .qc-call { background: var(--primary); color: var(--white); }
@@ -249,8 +247,6 @@
             .data-table th { padding: 10px 12px; font-size: 12px; }
             .data-table td { padding: 9px 12px; }
 
-            /* Chart */
-            .chart-container { max-width: 280px; }
 
             /* Sidebar */
             .sidebar-card { padding: 16px; margin-bottom: 14px; }
@@ -495,7 +491,7 @@
 <body>
 
 <!-- Header -->
-<div id="site-header">
+<div id="site-header" style="overflow:hidden;max-width:100vw;">
     <div style="background:var(--navy);padding:12px 0;">
         <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
             <a href="https://sabkacollege.com" style="color:#fff;font-size:22px;font-weight:700;letter-spacing:0.5px;display:flex;align-items:center;gap:8px;"><img src="logo.avif" alt="SabkaCollege Logo" style="height:32px;">Sabka<span style="color:var(--primary);">College</span></a>
@@ -609,26 +605,6 @@
                             <tr><td><strong>Trust</strong></td><td>Mahatma Gandhi Vidya Peetha Trust</td></tr>
                         </tbody>
                     </table>
-                </div>
-            </div>
-
-            <div class="card">
-                <h2>Admission Channels</h2>
-                <p>DSCE admits students through three primary channels for undergraduate engineering programs:</p>
-                <div class="table-wrap">
-                    <table class="data-table">
-                        <thead>
-                            <tr><th>Channel</th><th>Seat Share</th><th>Details</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td><strong>KCET</strong></td><td>45%</td><td>Karnataka CET counselling by KEA</td></tr>
-                            <tr><td><strong>COMEDK</strong></td><td>30%</td><td>COMEDK UGET counselling</td></tr>
-                            <tr><td><strong>Management</strong></td><td>25%</td><td>Direct admission through college</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="chart-container">
-                    <canvas id="admissionChart"></canvas>
                 </div>
             </div>
 
@@ -1442,39 +1418,6 @@
             this.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
         });
     });
-
-    /* ===== Pie Chart ===== */
-    var ctx = document.getElementById('admissionChart');
-    if (ctx) {
-        new Chart(ctx.getContext('2d'), {
-            type: 'pie',
-            data: {
-                labels: ['KCET (45%)', 'COMEDK (30%)', 'Management (25%)'],
-                datasets: [{
-                    data: [45, 30, 25],
-                    backgroundColor: ['#1a73e8', '#f39c12', '#3498db'],
-                    borderWidth: 2,
-                    borderColor: '#fff'
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: { font: { family: 'Poppins', size: 12 }, padding: 16 }
-                    },
-                    title: {
-                        display: true,
-                        text: 'Admission Seat Distribution',
-                        font: { family: 'Poppins', size: 14, weight: '600' },
-                        color: '#0e2142',
-                        padding: { bottom: 16 }
-                    }
-                }
-            }
-        });
-    }
 
     /* ===== Scroll to Top ===== */
     var scrollTopBtn = document.getElementById('scrollTopBtn');

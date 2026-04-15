@@ -18,7 +18,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 
     <script type="application/ld+json">
     {
@@ -138,17 +137,24 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--text);
             background: var(--bg);
             line-height: 1.6;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         a { color: var(--primary); text-decoration: none; }
         a:hover { color: var(--primary-dark); }
 
-        .container { max-width: var(--maxw); margin: 0 auto; padding: 0 15px; }
+        .container { max-width: var(--maxw); margin: 0 auto; padding: 0 15px; overflow-x: hidden; }
 
         /* Hero Section */
         .hero-section {
@@ -219,10 +225,12 @@
             border-top: 1px solid #c8ddf5;
             border-bottom: 1px solid #c8ddf5;
             padding: 15px 0;
+            overflow: hidden;
         }
         .key-info-grid {
             display: flex; justify-content: space-around;
             flex-wrap: wrap; gap: 10px;
+            overflow: hidden;
         }
         .key-info-item {
             text-align: center; padding: 5px 15px;
@@ -242,6 +250,7 @@
             border-bottom: 2px solid var(--border);
             position: sticky; top: 0; z-index: 100;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            overflow: hidden;
         }
         .tabs-nav .container {
             display: flex; overflow-x: auto;
@@ -554,6 +563,7 @@
             color: var(--white);
             padding: 40px 0;
             text-align: center;
+            overflow: hidden;
         }
         .cta-band h2 {
             font-size: 24px; font-weight: 600;
@@ -576,11 +586,13 @@
             background: var(--navy);
             color: rgba(255,255,255,0.7);
             padding: 40px 0 20px;
+            overflow: hidden;
         }
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 30px;
+            overflow: hidden;
         }
         .footer-col h4 {
             color: var(--white);
@@ -662,6 +674,9 @@
             background: var(--navy);
             padding: 10px 0;
             display: none;
+            width: 100%;
+            max-width: 100vw;
+            overflow: hidden;
         }
         .quick-connect.visible { display: block; }
         .quick-connect .container {
@@ -835,6 +850,7 @@
         .site-header-bar {
             background: var(--navy);
             padding: 12px 0;
+            overflow: hidden;
         }
         .site-header-inner {
             max-width: var(--maxw);
@@ -843,6 +859,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            overflow: hidden;
         }
         .site-header-logo {
             color: #fff;
@@ -1242,39 +1259,6 @@
                         <p>MS Ramaiah Institute of Technology (MSRIT), formerly known as MSRIT, established in 1962 by the Gokula Education Foundation (GEF), is one of the oldest and most prestigious private engineering colleges in Karnataka. Spread across an 18-acre campus in Mathikere, Bangalore, MSRIT has been a cornerstone of technical education in South India for over six decades, with strong industry collaborations and state-of-the-art infrastructure.</p>
                         <p>The institute operates as an autonomous institution affiliated to Visvesvaraya Technological University (VTU), Belagavi. It has been accredited with NAAC A+ grade (score 3.28) and is ranked #78 in the NIRF Engineering category. Often considered one of the "Big 4" private engineering colleges in Bangalore, MSRIT consistently delivers quality education and strong placement outcomes with a 96% placement rate.</p>
                         <p>MSRIT offers a diverse range of undergraduate, postgraduate, and doctoral programs across engineering, technology, and management disciplines, attracting students from across the country. The college is approved by AICTE and multiple programs are NBA accredited.</p>
-                    </div>
-
-                    <div class="content-card">
-                        <h2>Admission Channels</h2>
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>Channel</th>
-                                    <th>Seat Share</th>
-                                    <th>Entrance Exam</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Government Quota (KCET)</td>
-                                    <td>45%</td>
-                                    <td>KCET</td>
-                                </tr>
-                                <tr>
-                                    <td>COMEDK Quota</td>
-                                    <td>30%</td>
-                                    <td>COMEDK UGET</td>
-                                </tr>
-                                <tr>
-                                    <td>Management Quota</td>
-                                    <td>25%</td>
-                                    <td>Merit Based</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class="chart-container">
-                            <canvas id="seatChart"></canvas>
-                        </div>
                     </div>
 
                     <div class="content-card">
@@ -1991,42 +1975,6 @@ courseToggleBtns.forEach(function(btn) {
         document.getElementById('pg-courses').style.display = target === 'pg' ? 'block' : 'none';
     });
 });
-
-/* ===== Chart.js - Seat Distribution ===== */
-var ctx = document.getElementById('seatChart');
-if (ctx) {
-    new Chart(ctx.getContext('2d'), {
-        type: 'pie',
-        data: {
-            labels: ['KCET (45%)', 'COMEDK (30%)', 'Management (25%)'],
-            datasets: [{
-                data: [45, 30, 25],
-                backgroundColor: ['#1a73e8', '#f39c12', '#3498db'],
-                borderWidth: 2,
-                borderColor: '#fff'
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'bottom',
-                    labels: {
-                        padding: 15,
-                        font: { family: 'Poppins', size: 12 }
-                    }
-                },
-                title: {
-                    display: true,
-                    text: 'Seat Distribution by Quota',
-                    font: { family: 'Poppins', size: 14, weight: '600' },
-                    color: '#0e2142',
-                    padding: { bottom: 15 }
-                }
-            }
-        }
-    });
-}
 
 /* ===== Lead Form Submission ===== */
 function submitLeadForm(e, formId) {
